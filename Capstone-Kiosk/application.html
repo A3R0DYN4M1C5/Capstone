@@ -1,0 +1,26 @@
+<html>
+<title>Capstone Kiosk</title>
+<body>
+<link href='fullcalendar/core/main.css' rel='stylesheet' />
+<link href='fullcalendar/daygrid/main.css' rel='stylesheet' />
+
+<script src='fullcalendar/core/main.js'></script>
+<script src='fullcalendar/google-calendar/main.js'></script>
+<script>
+
+var calendar = new FullCalendar.Calendar(calendarEl, {
+  plugins: [ 'googleCalendar' ]
+});
+
+let calendar = new Calendar(calendarEl, {
+  plugins: [ googleCalendarPlugin ],
+  googleCalendarApiKey: 'AIzaSyANfhiJO3_F_IMtJEbzakHshHAt0-9ZOG0',
+  events: {
+    googleCalendarId: 'lopalopax@gmail.com'
+  }
+});
+
+</script>
+
+</body>
+</html>

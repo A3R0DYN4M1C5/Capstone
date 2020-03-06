@@ -1,0 +1,8 @@
+{
+ "name": "Capstone",
+ "permissions": [
+     "webview"
+ ],
+"kiosk_enabled": true
+
+}
