@@ -1,26 +1,54 @@
 <html>
 <title>Capstone Kiosk</title>
-<body>
-<link href='fullcalendar/core/main.css' rel='stylesheet' />
-<link href='fullcalendar/daygrid/main.css' rel='stylesheet' />
+<head>
+<link href='fullcalendar-4.4.0\packages\core\main.css' rel='stylesheet'/>
+<link href='fullcalendar-4.4.0\packages\daygrid\main.css' rel='stylesheet' />
+<link href='fullcalendar-4.4.0/packages/list/main.css' rel="stylesheet"/>
 
-<script src='fullcalendar/core/main.js'></script>
-<script src='fullcalendar/google-calendar/main.js'></script>
+<script src='fullcalendar-4.4.0\packages\core\main.js'></script>
+<script src='fullcalendar-4.4.0/packages/daygrid/main.js'></script>
+<script src='fullcalendar-4.4.0/packages/google-calendar/main.js'></script>
+<script src="fullcalendar-4.4.0/packages/list/main.js"></script>
 <script>
 
-var calendar = new FullCalendar.Calendar(calendarEl, {
-  plugins: [ 'googleCalendar' ]
-});
+document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
 
-let calendar = new Calendar(calendarEl, {
-  plugins: [ googleCalendarPlugin ],
-  googleCalendarApiKey: 'AIzaSyANfhiJO3_F_IMtJEbzakHshHAt0-9ZOG0',
-  events: {
-    googleCalendarId: 'lopalopax@gmail.com'
-  }
-});
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          plugins: [ 'dayGrid', 'googleCalendar' ],
+          header: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'dayGridMonth,listYear'
+          },
+
+          displayEventTime: false, //don't show the time in list view
+
+          googleCalendarApiKey: 'AIzaSyANfhiJO3_F_IMtJEbzakHshHAt0-9ZOG0',
+
+          events: 'lopalopax@gmail.com',
+
+          eventClick: function(args) {
+
+            //opens events in a popup window
+            window.open(arg.event.url, '_blank', 'width=700,height=600');
+
+            //prevents current tab from navigating
+            args.jsevent.preventDefault();
+          }
+
+        });
+
+        calendar.render();
+      });
+
+
 
 </script>
+</head>
+
+<body>
+<div id="calendar"></div>
 
 </body>
 </html>
